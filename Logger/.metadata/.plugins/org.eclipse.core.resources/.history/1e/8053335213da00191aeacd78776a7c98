@@ -1,0 +1,16 @@
+package src;
+
+public class Singleton {
+	
+	public static Singleton instance;
+	public static Singleton getInstance()
+	{
+		if (instance == null)
+		{
+			instance = new Singleton();
+		}
+		System.out.print(instance);
+		return instance;	
+	}
+
+}

@@ -1,0 +1,31 @@
+package src;
+import src.Singleton;
+import java.io.*;
+
+public class Main {
+	
+	
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		
+		PrintWriter writer;
+		try
+		{
+			writer= new PrintWriter(new FileWriter("log.txt",true));
+			writer.println("Erste Zeile:");
+			writer.println("Zweite Zeile");
+			writer.flush();
+			writer.close();
+		}
+		catch (FileNotFoundException | UnsupportedEncodingException e)
+		{
+			e.printStackTrace();
+		}
+
+	}
+	
+	Singleton.getInstance().log("Programm initialsiert");
+	Singleton.getInstance().log("Person erzeugt");
+}
+}

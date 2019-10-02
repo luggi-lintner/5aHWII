@@ -1,0 +1,56 @@
+package src;
+import java.io.*;
+
+public class Singleton {
+	
+	private static Singleton instance = new Singleton();
+	public String logname = "logname";
+	protected String env = System.getProperty("user.dir");
+	private static File logFile;
+	
+	
+
+	public static Singleton getInstance(){
+		return instance;
+	}
+
+	public static Singleton getInstance(String withName){
+		instance.logname = withName;
+		instance.createLogFile();
+		return instance;
+	}
+
+	public void createLogFile(){
+		//Determine if a logs directory exists or not.
+		File logsFolder = new File("C:\\Users\\luggi\\Documents\\Schule\\5aHWII\\SWP-OP\\Logger\\Loger");
+		if(!logsFolder.exists()){
+			//Create the directory 
+			System.err.println("INFO: Creating new logs directory in ");
+			logsFolder.mkdir();
+			
+		}
+
+		}
+	
+
+	private void Singleton(){
+		if (instance != null){
+			//Prevent Reflection
+			throw new IllegalStateException("Cannot instantiate a new singleton instance of log");
+		}
+		this.createLogFile();
+	}
+
+	public static void log(String message){
+		try{
+			FileWriter out = new FileWriter(Singleton.logFile, true);
+			out.write(message.toCharArray());
+			out.close();
+		}catch(IOException e){
+			System.err.println("ERROR: Could not write to log file");
+		}
+	}
+	
+	
+
+}

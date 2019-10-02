@@ -1,0 +1,35 @@
+package src;
+
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+
+public class Singleton {
+	
+	public static Singleton instance;
+	public static Singleton getInstance()
+	{
+		if (instance == null)
+		{
+			instance = new Singleton();
+		}
+		
+		return instance;	
+	}
+	
+	PrintWriter writer;
+	try
+	{
+		writer= new PrintWriter(new FileWriter("log.txt",true));
+		writer.println("Erste Zeile:");
+		writer.println("Zweite Zeile");
+		writer.flush();
+		writer.close();
+	}
+	catch (FileNotFoundException | UnsupportedEncodingException e)
+	{
+		e.printStackTrace();
+	}
+
+}
