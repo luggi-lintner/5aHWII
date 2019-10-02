@@ -1,0 +1,39 @@
+package main;
+
+public class Observerable {
+
+	private ArrayList<Observer>;
+	private int value; 
+	
+	public Observerable() {
+		observer = new ArrayList<Observer>();
+		
+		
+		
+	}
+	
+	private void notifyAllObservers()
+	{
+		
+	}
+	
+	public int setValue(int i)
+	{
+		value = i;
+		return value;
+	}
+	
+	public int getValue()
+	{
+		return value;
+	}
+	
+	public void subscribe(String name) {
+		
+		
+	}
+	
+	public void unsubscribe(String name) {
+		
+	}
+}

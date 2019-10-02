@@ -1,0 +1,17 @@
+package main;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Observerable.setValue_new(2);
+		if(Observerable.getValue_new() != Observerable.getValue_old())
+		{
+			Observer.update(Observerable.getValue_new());
+			Observerable.setValue_old(Observerable.getValue_new());
+		}
+
+	}
+
+}

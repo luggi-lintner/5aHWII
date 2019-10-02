@@ -1,0 +1,87 @@
+package main;
+import java.util.*;
+
+public class Observerable {
+
+	private ArrayList<Observer> observer;
+	private static int value_old;
+	private static int value_new;
+	
+	public Observerable() {
+		observer = new ArrayList<Observer>();
+		
+		
+		
+	}
+	
+	public void notifyAllObservers()
+	{
+		
+		Observer.update(value_new);
+	}
+	
+	public static int setValue(int i)
+	{
+		value_old = i;
+		return value_new;
+	}
+	
+	public static int getValue()
+	{
+		return value_new;
+	}
+	
+	public void subscribe(Observer name) {
+	observer.add(name);	
+		
+	}
+	
+	public void unsubscribe(Observer name) {
+		observer.remove(name);
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		
+		setValue(2);
+		for(int i=0; i<=5; i++)
+		{
+		if(value_new != value_old)
+		{
+			Observer.update(value_new);
+			value_old = value_new;
+		}
+		System.out.println("Alt: "+value_old);
+		System.out.println("Neu: "+value_new);
+		}
+		value_new=20;
+		for(int i=0; i<=5; i++)
+		{
+		if(value_new != value_old)
+		{
+			Observer.update(value_new);
+			value_old = value_new;
+		}
+		System.out.println("Alt: "+value_old);
+		System.out.println("Neu: "+value_new);
+		}
+		value_new=15;
+		for(int i=0; i<=5; i++)
+		{
+		if(value_new != value_old)
+		{
+			Observer.update(value_new);
+			value_old = value_new;
+		}
+		System.out.println("Alt: "+value_old);
+		System.out.println("Neu: "+value_new);
+		}
+		
+	}
+}
+
+
+
+
+

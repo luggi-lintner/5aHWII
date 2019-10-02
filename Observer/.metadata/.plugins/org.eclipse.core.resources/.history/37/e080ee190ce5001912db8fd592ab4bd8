@@ -1,0 +1,60 @@
+package main;
+import java.util.*;
+
+public class Observerable {
+
+	private ArrayList<Observer> observer;
+	private static int value_old;
+	private static int value_new;
+	
+	public Observerable() {
+		observer = new ArrayList<Observer>();
+		
+		
+		
+	}
+	
+	public void notifyAllObservers()
+	{
+		
+		Observer.update(value_new);
+	}
+	
+	public int setValue(int i)
+	{
+		value_old = i;
+		return value_old;
+	}
+	
+	public int getValue()
+	{
+		return value_old;
+	}
+	
+	public void subscribe(Observer name) {
+	observer.add(name);	
+		
+	}
+	
+	public void unsubscribe(Observer name) {
+		observer.remove(name);
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		if(value_new != value_old)
+		{
+			Observer.update(value_new);
+			value_old = value_new;
+		}
+		System.out.println(value_old);
+		System.out.println(value_new);
+		
+	}
+}
+
+
+
+
+

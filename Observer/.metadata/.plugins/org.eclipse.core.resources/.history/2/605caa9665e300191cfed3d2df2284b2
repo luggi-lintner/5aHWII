@@ -1,0 +1,10 @@
+package main;
+
+public interface Observer{
+	
+	public static void update(int i)
+	{
+		
+	}
+
+}
