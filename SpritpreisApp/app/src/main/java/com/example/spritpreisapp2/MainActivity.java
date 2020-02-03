@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     private JSONObject data;
     private ListView lv;
     private Button b;
-	public int test;
     AsyncTaskRunner runner = new AsyncTaskRunner();
 
     @Override
@@ -59,31 +58,36 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response)
                     {
+
                         try
                         {
                             data = new JSONObject(response);
                             //initList(data);
                             JSONArray arr = data.getJSONArray("Stations");
+                            Log.d("Tag:","JSON Daten abgefragt");
 
                             for (int i = 0; i < arr.length(); i++)
                             {
                                 String id = arr.getJSONObject(i).get("id").toString();
                                 String name = arr.getJSONObject(i).get("name").toString();
                                 String brand = arr.getJSONObject(i).get("brand").toString();
-                                String street = arr.getJSONObject(i).get("street").toString();
+                                Log.d("Tag", "Erreicht");
+                                //String street = arr.getJSONObject(i).get("street").toString();
                                 String place = arr.getJSONObject(i).get("place").toString();
                                 String dist = arr.getJSONObject(i).get("dist").toString();
                                 String diesel =arr.getJSONObject(i).get("diesel").toString();
                                 String e5 = arr.getJSONObject(i).get("e5").toString();
                                 String e10 = arr.getJSONObject(i).get("e10").toString();
-                                String isOpen = arr.getJSONObject(i).get("isOpen").toString();
+                                //String isOpen = arr.getJSONObject(i).get("isOpen").toString();
                                 String plz = arr.getJSONObject(i).get("postCode").toString();
 
 
                                 String tmp = id + " " + name + " "+ brand+" "+ plz +" "+place +" Distanz: "+dist+" Diesel: "+ diesel +" Super: "+ e10;
                                 list.add(tmp);
+                                Log.d("Tag:","zur Liste hinzugefügt");
                             }
                         } catch (JSONException e) {
+                            Log.d("Tag:","catch Exception");
                             e.printStackTrace();
                         }
                     }
@@ -109,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
           mRequestQueue = Volley.newRequestQueue(getApplication());
           arrayAdapter.addAll(list);
-          Log.d("Tag:","abc");
+          Log.d("Tag:","on Post Execute Methode wird ausgefuehrt");
           b= findViewById(R.id.button_uk);
 
           mRequestQueue.add(request);
