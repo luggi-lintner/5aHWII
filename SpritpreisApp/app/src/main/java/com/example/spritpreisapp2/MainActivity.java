@@ -59,11 +59,12 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response)
                     {
 
+                        Log.d("Tag", "vor Try");
                         try
                         {
                             data = new JSONObject(response);
                             //initList(data);
-                            JSONArray arr = data.getJSONArray("Stations");
+                            JSONArray arr = data.getJSONArray("stations");
                             Log.d("Tag:","JSON Daten abgefragt");
 
                             for (int i = 0; i < arr.length(); i++)
