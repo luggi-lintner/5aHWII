@@ -116,8 +116,10 @@ public class MainActivity extends AppCompatActivity {
           arrayAdapter.addAll(list);
           Log.d("Tag:","on Post Execute Methode wird ausgefuehrt");
           b= findViewById(R.id.button_uk);
+          Log.d("Tag", "on Post Teil 2");
 
           mRequestQueue.add(request);
+          Log.d("Tag", "on Post Teil 3");
         }
 
 
