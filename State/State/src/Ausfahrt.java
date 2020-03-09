@@ -5,9 +5,9 @@ public class Ausfahrt implements IState {
 	public void goNext(Context c) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("Parkhaus verlassen. Auf Wiedersehn!");
-		System.out.println(" ");
-		c.setState(new Einfahrt());
+			System.out.println("Parkhaus verlassen. Auf Wiedersehn!");
+			System.out.println(" ");
+			c.setState(new Einfahrt());
 		
 	}
 
