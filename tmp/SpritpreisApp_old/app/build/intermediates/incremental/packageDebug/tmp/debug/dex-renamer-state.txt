@@ -1,0 +1,4 @@
+#Wed Jan 29 15:02:03 CET 2020
+base.0=E\:\\Schule\\5aHWII\\SWP\\SpritpreisApp2\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
