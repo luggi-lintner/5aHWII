@@ -28,10 +28,10 @@ public class Getriebe {
 		{
 			this.modus = new NormalModus();
 		}
-		/*if(m == MODUS.SPORT)
+		if(m == MODUS.SPORT)
 		{
 			this.modus = new SportModus();
-		}*/
+		}
 		
 		
 	}
